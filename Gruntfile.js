@@ -1,17 +1,21 @@
 module.exports = function(grunt) {
 
   // Load tasks provided by each plugin
-  grunt.loadNpmTasks("grunt-contrib-compass");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
-	
+  grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks("grunt-jekyll");
+
    // Project configuration
   grunt.initConfig({
-      compass: {
+      sass: {
           dist: {
-              options: {
-                  config: 'config.rb'
-              }
+              files: [
+                  {
+                      src: ['clientside/sass/main.scss'],
+                      dest: 'clientside/stylesheets/main.css'
+                  }
+              ]
           }
       },
       cssmin: {
@@ -22,10 +26,26 @@ module.exports = function(grunt) {
               dest: 'clientside/stylesheets/min/',
               ext: '.min.css'
           }
+      },
+      jekyll: {
+        server: {
+          dest: '_site',
+          serve: true,
+          server_port: 8000,
+          auto: true
+			},
+      dev: {
+        dest: '_site'
       }
-
+		},
+		watch: { // for development run 'grunt watch'
+			jekyll: {
+				files: ['templates/*.html'],
+				tasks: ['jekyll:dev']
+			}
+    }
   });
 
-  grunt.registerTask('default', ['compass','cssmin']);
+  grunt.registerTask('default', ['sass','cssmin', 'jekyll:server']);
 
 }

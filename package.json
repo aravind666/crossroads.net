@@ -5,7 +5,8 @@
     "author": "aravind666 <aravind.udayashankara@gmail.com>",
     "devDependencies": {
         "grunt-contrib-uglify": "latest",
-    	"grunt-contrib-compass": "latest",
+    	"grunt-contrib-sass": "latest",
+      "grunt-jekyll": "latest",
     	"grunt-contrib-cssmin": "latest",
         "grunt": "latest"
     }
