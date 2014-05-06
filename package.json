@@ -7,6 +7,7 @@
         "grunt-contrib-uglify": "latest",
     	"grunt-contrib-sass": "latest",
       "grunt-jekyll": "latest",
+      "grunt-contrib-watch": "latest",
     	"grunt-contrib-cssmin": "latest",
         "grunt": "latest"
     }

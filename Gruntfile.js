@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-jekyll");
 
    // Project configuration
@@ -34,12 +35,25 @@ module.exports = function(grunt) {
           dest: '_site',
           serve: true,
           server_port: 8000,
-          auto: true
+          auto: true,
         }
       },
+      build: {
+        options: {
+          src: 'src',
+          dest: '_site'
+        }
+      }
     },
+    watch: {
+      sass: {
+        files: "src/**/*.scss",
+        tasks: ["sass"],
+      },
+    }
   });
 
+  grunt.registerTask("dev", ["watch", "jekyll"]);
   grunt.registerTask('default', ['sass','cssmin', 'jekyll']);
 
 }
