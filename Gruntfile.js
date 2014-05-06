@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-jekyll");
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
    // Project configuration
   grunt.initConfig({
@@ -28,13 +29,21 @@ module.exports = function(grunt) {
             ext: '.min.css'
         }
     },
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: "_site",
+        }
+      }
+    },
     jekyll: {
       server: {
         options: {
           src: 'src',
           dest: '_site',
           serve: true,
-          server_port: 8000,
+          server_port: 8001,
           auto: true,
         }
       },
@@ -48,12 +57,21 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: "src/**/*.scss",
-        tasks: ["sass"],
+        tasks: ["sass", "cssmin"],
+        livereload: true,
       },
+      jekyll: {
+        files: [
+          "src/**/*.md",
+          "src/**/*.markdown",
+          "src/**/*.css",
+          "src/**/*.html"
+        ],
+        tasks: ["jekyll:build"],
+      }
     }
   });
 
-  grunt.registerTask("dev", ["watch", "jekyll"]);
-  grunt.registerTask('default', ['sass','cssmin', 'jekyll']);
-
+  grunt.registerTask("dev", ["connect", "watch"]);
+  grunt.registerTask('default', ['sass','cssmin','jekyll:build']);
 }

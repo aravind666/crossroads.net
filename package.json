@@ -1,14 +1,15 @@
 {
-    "name": "crossroads",
-    "version": "0.0.0",
-    "repository": "https://github.com/crdschurch/crossroads.net.git",
-    "author": "aravind666 <aravind.udayashankara@gmail.com>",
-    "devDependencies": {
-        "grunt-contrib-uglify": "latest",
-    	"grunt-contrib-sass": "latest",
-      "grunt-jekyll": "latest",
-      "grunt-contrib-watch": "latest",
-    	"grunt-contrib-cssmin": "latest",
-        "grunt": "latest"
-    }
+  "name": "crossroads",
+  "version": "0.0.0",
+  "repository": "https://github.com/crdschurch/crossroads.net.git",
+  "author": "aravind666 <aravind.udayashankara@gmail.com>",
+  "devDependencies": {
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-jekyll": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt": "latest",
+    "grunt-contrib-connect": "~0.7.1"
+  }
 }
