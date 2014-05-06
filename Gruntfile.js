@@ -12,8 +12,8 @@ module.exports = function(grunt) {
         dist: {
             files: [
                 {
-                    src: ['clientside/sass/main.scss'],
-                    dest: 'clientside/stylesheets/main.css'
+                    src: ['src/clientside/sass/main.scss'],
+                    dest: 'src/clientside/stylesheets/main.css'
                 }
             ]
         }
@@ -21,15 +21,16 @@ module.exports = function(grunt) {
     cssmin: {
         minify: {
             expand: true,
-            cwd: 'clientside/stylesheets/',
+            cwd: 'src/clientside/stylesheets/',
             src: ['*.css', '!*.min.css'],
-            dest: 'clientside/stylesheets/min/',
+            dest: 'src/clientside/stylesheets/min/',
             ext: '.min.css'
         }
     },
     jekyll: {
       server: {
         options: {
+          src: 'src',
           dest: '_site',
           serve: true,
           server_port: 8000,
