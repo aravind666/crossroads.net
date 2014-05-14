@@ -23,9 +23,9 @@ module.exports = function(lineman) {
     //   }
     // }
 
-    loadNpmTasks: lineman.config.application.loadNpmTasks.concat("grunt-jekyll"),
+    loadNpmTasks: lineman.config.application.loadNpmTasks.concat(["grunt-jekyll", "grunt-traceur-simple"]),
     appendTasks: {
-      common: ["jekyll"],
+      common: ["traceur", "jekyll"],
     },
     // Sass
     //
@@ -66,6 +66,18 @@ module.exports = function(lineman) {
         }
       }
     },
+    traceur: {
+      options: {
+        includeRuntime: true, // includes runtime code in generated file
+        traceurOptions: '--experimental --sourcemap'
+      },
+      all: {
+        files: {
+          // Just need to transpile main file which imports others.
+          "generated/js/app.js": ["app/js/app.js"]
+        }
+      }
+    },
     watch: {
       jekyll: {
         files: [
@@ -74,7 +86,11 @@ module.exports = function(lineman) {
           "app/clientside/**/*.css",
           "app/**/*.html"
         ],
-        tasks: ["jekyll:build"],
+        tasks: ["traceur:all","jekyll:build"],
+      },
+      traceur: {
+        files: ["app/js/app.js"],
+        tasks: ["traceur:all"]
       }
     }
     // Asset Fingerprints
