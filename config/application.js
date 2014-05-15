@@ -38,10 +38,7 @@ module.exports = function(lineman) {
     sass: {
       compile: {
         options: {
-          noCache: true
-        },
-        files: {
-          'generated/css/main.css': 'app/_scss/main.scss'
+          loadPath: ["app/css", "vendor/css", "vendor/bower/bootstrap-sass/vendor/assets/stylesheets"]
         }
       }
     },
@@ -68,7 +65,7 @@ module.exports = function(lineman) {
       linemanArtifacts: {
         files: [
           {src: "<%= files.js.concatenated %>", dest: "_site/js/app.js"},
-          {src: "<%= files.sass.generatedApp %>", dest: "_site/css/main.css"}
+          {src: "<%= files.css.concatenated %>", dest: "_site/css/main.css"}
         ]
       }
     },
@@ -83,6 +80,13 @@ module.exports = function(lineman) {
       }
     },
     watch: {
+      linemanArtifacts: {
+        files: [
+          "generated/**/*.js",
+          "generated/**/*.css",
+        ],
+        tasks: ["copy:linemanArtifacts"]
+      },
       jekyll: {
         files: [
           "app/**/*.md",
@@ -90,10 +94,6 @@ module.exports = function(lineman) {
           "app/**/*.html"
         ],
         tasks: ["jekyll:build", "copy:linemanArtifacts"]
-      },
-      scss: {
-        files: 'app/_scss/*.scss',
-        tasks: ['sass:compile', "copy:linemanArtifacts"]
       }
     }
     // Asset Fingerprints
