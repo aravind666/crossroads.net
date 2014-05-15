@@ -23,7 +23,7 @@ module.exports = function(lineman) {
     //   }
     // }
 
-    loadNpmTasks: lineman.config.application.loadNpmTasks.concat("grunt-jekyll"),
+    loadNpmTasks: lineman.config.application.loadNpmTasks.concat("grunt-jekyll", "grunt-contrib-copy"),
     appendTasks: {
       common: ["jekyll"],
     },
@@ -41,7 +41,6 @@ module.exports = function(lineman) {
           noCache: true
         },
         files: {
-          'app/css/main.css': 'app/_scss/main.scss',
           'generated/css/main.css': 'app/_scss/main.scss'
         }
       }
@@ -50,6 +49,7 @@ module.exports = function(lineman) {
 
 
     server: {
+      base: "_site",
       pushState: true
       // API Proxying
       //
@@ -64,11 +64,19 @@ module.exports = function(lineman) {
       //   port: 3000
       // }
     },
+    copy: {
+      linemanArtifacts: {
+        files: [
+          {src: "<%= files.js.concatenated %>", dest: "_site/js/app.js"},
+          {src: "<%= files.sass.generatedApp %>", dest: "_site/css/main.css"}
+        ]
+      }
+    },
     jekyll: {
       build: {
         options: {
           src: 'app',
-          dest: 'generated',
+          dest: '_site',
           bundleExec: true,
           config: 'config/_config.yml'
         }
@@ -81,12 +89,12 @@ module.exports = function(lineman) {
           "app/**/*.markdown",
           "app/**/*.html"
         ],
-        tasks: ["jekyll:build"],
+        tasks: ["jekyll:build", "copy:linemanArtifacts"]
       },
       scss: {
         files: 'app/_scss/*.scss',
-        tasks: ['sass:compile']
-      },      
+        tasks: ['sass:compile', "copy:linemanArtifacts"]
+      }
     }
     // Asset Fingerprints
     //
