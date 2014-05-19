@@ -3,6 +3,7 @@
 @import 'overrides';
 @import 'brandbar';
 @import 'media';
+@import 'nav';
 // @import 'block-grid';
 
 a:hover {
@@ -26,7 +27,7 @@ a:hover {
 footer {
 	background-color: $gray-lighter;
 	padding: 25px 0;
-        margin-top: 40px;
+    margin-top: 40px;
 }
 
 .center {
