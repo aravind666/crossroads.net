@@ -1,112 +1,31 @@
-<nav class="top-bar container">
-  <div class="row">
-    <div class="col-md-12">
-      <a class="top-bar__logo">
-      <a class="top-bar__expand">
-        <i class="icon--hamburger">
-          <span class="divne--horizontal"></span>
-          <span class="divne--horizontal"></span>
-          <span class="divne--horizontal"></span>
-        </i>
-      </a>
-      <div class="top-bar__nav visible-md visible-lg">
-        <div id="myhome" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>My Crossroads</span></a>
-          <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <div class="login col-md-6">
-              <div class="dd_menu">
-                <div class="primary">
-                  <h3>Login</h3>
-                  <form id="nav_login" role="form" method="post" action="https://www.crossroads.net/index.php">
-                    <div class="form-group">
-                      <input class="form-control" type="hidden" name="action" value="viewpage">
-                      <input class="form-control" type="hidden" name="filepath" value="site/actLogin.php">
-                      <div class="input-group">
-                        <input class="form-control" type="text" name="userName" id="username_nav" placeholder="Username">
-                        <span class="input-group-addon"><a href="/recoverPassword/emailUsername.php">@</a></span>
-                      </div>
-                      <div class="input-group">
-                        <input class="form-control" autocomplete="off" type="password" name="password" id="password_nav" placeholder="Password">
-                        <span class="input-group-addon"> <a href="/recoverPassword/emailPassword.php">@</a></span>
-                      </div>
-                      <input type="submit" name="submit_nav" value="Login" id="submit_nav" class="col-md-12 btn submit">
-                      <div style="font-size: smaller;">
-                        <input type="checkbox" name="remember" id="remember_nav">
-                        <label for="remember">Stay Logged In</label>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div>
-              <ul class="links col-md-3">
-                <li role="menuitem" tabindex="-1" href="#">Dashboard</li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Profile</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Giving History</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Groups</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Engage</a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Get Involved</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Connect</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Corkboard</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Reachout</a></li>
+<div class="navbar navbar-default" role="navigation" ng-controller="MainCtrl">
+  <div class="container">
+    <div class="navbar-header col-md-12 col-xs-10">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="/"><img src="/img/logo.svg" alt="crossroads" /></a>
+    </div>
+    <div class="navbar-collapse collapse col-xs-10 col-md-12">
+      {% raw %}
+      <ul class="nav navbar-nav" ng-repeat="heading in menus.headings">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{heading.title}}</a>
+          <ul class="dropdown-menu" role="menu" aria-labeledby="dropdownMenu1">
+	    <li role="presentation" ng-repeat="item in heading.items">
+              <a role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
+	    </li>    
           </ul>
-        </div>
-        <div class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Grow</a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Essentials of Growth</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Subscribe to the Daily</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Get in Community</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Baptism</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lead Your Family</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Explore Crossroads</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Who We Are</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blog</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Locations</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Service Times and Directions
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pastoral Care</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Contact Us</a></li>
-            </a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Give</a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Recurring Gift</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">One-time Gift</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Transfer Stock</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Estate Giving</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Give to Others</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Financial Philosophy</a>
-            </li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Media</a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Weekend Service</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Videos</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Transfer Stock</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Music</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Podcast</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <a class="dropdown-toggle" href="#">Admin</a>
-        </div>
-      </div>
+	</li>
+      </ul>
+      {% endraw %}
     </div>
   </div>
-</nav>
+</div>
+
+<script>
+  window.menuData = {{site.data.menu | jsonify}}
+</script>
