@@ -1,27 +1,39 @@
 <div class="navbar navbar-default" role="navigation" ng-controller="MainCtrl">
-  <div class="container">
-    <div class="navbar-header col-md-12 col-xs-10">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand logo" href="/"><img src="/img/logo.svg" alt="crossroads" /></a>
-    </div>
-    <div class="navbar-collapse collapse col-xs-10 col-md-12">
-      {% raw %}
-      <ul class="nav navbar-nav" ng-repeat="heading in menus.headings">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{heading.title}}</a>
-          <ul class="dropdown-menu" role="menu" aria-labeledby="dropdownMenu1">
-	    <li role="presentation" ng-repeat="item in heading.items">
-              <a role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
-	    </li>    
-          </ul>
-	</li>
-      </ul>
-      {% endraw %}
+  <div class="container-fluid container-max">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="/"><img src="/img/logo.svg" alt="crossroads" /></a>
+            <a class="signin btn submit" data-toggle="dropdown" href="#"><span>Sign In</span></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                {% include login_form.html %}
+              </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="navbar-collapse collapse">
+              {% raw %}
+              <ul class="nav navbar-nav col-sm-6">
+                <li class="dropdown" ng-repeat="heading in menus.headings">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{heading.title}}</a>
+                  <ul class="dropdown-menu" role="menu" aria-labeledby="dropdownMenu1">
+              	    <li role="presentation" ng-repeat="item in heading.items">
+                      <a role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
+              	    </li>    
+                  </ul>
+              	</li>
+              </ul>
+              {% endraw %}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
