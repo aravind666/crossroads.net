@@ -12,13 +12,21 @@
             </button>
             <a class="navbar-brand logo" href="/"><img src="/img/logo.svg" alt="crossroads" /></a>
             <ul class="signin">
-              <li class="dropdown" data-toggle="dropdown">
-                <a class="btn submit dropdown-toggle" data-toggle="dropdown" href="#"><span>Sign In</span></a>
+              <li class="dropdown hidden-xs hidden-sm" data-toggle="dropdown">
+                <a class="btn login dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="icon icon--user"></i>
+                  <span>Sign In</span>
+                </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                  <li role="presentation"
+                  <li role="presentation">
                    {% include login_form.html %}
                   </li>
                 </ul>
+              </li>
+              <li class="visible-xs visible-sm">
+                <a class="btn login" href="/login">
+                  <i class="icon icon--user"></i>
+                </a>
               </li>
             </ul>
           </div>
@@ -26,7 +34,7 @@
         <div class="row">
           <div class="navbar-collapse collapse">
               {% raw %}
-              <ul class="nav navbar-nav col-sm-5 col-md-7">
+              <ul class="nav navbar-nav col-xs-12">
                 <li class="dropdown" ng-repeat="heading in menus.headings">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{heading.title}}</a>
                   <ul class="dropdown-menu col-sm-12" role="menu" aria-labeledby="dropdownMenu1">
