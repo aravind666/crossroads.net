@@ -11,19 +11,25 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand logo" href="/"><img src="/img/logo.svg" alt="crossroads" /></a>
-            <a class="signin btn submit" data-toggle="dropdown" href="#"><span>Sign In</span></a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                {% include login_form.html %}
-              </ul>
+            <ul class="signin">
+              <li class="dropdown" data-toggle="dropdown">
+                <a class="btn submit dropdown-toggle" data-toggle="dropdown" href="#"><span>Sign In</span></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                  <li role="presentation"
+                   {% include login_form.html %}
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="row">
           <div class="navbar-collapse collapse">
               {% raw %}
-              <ul class="nav navbar-nav col-sm-5">
+              <ul class="nav navbar-nav col-sm-5 col-md-7">
                 <li class="dropdown" ng-repeat="heading in menus.headings">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{heading.title}}</a>
-                  <ul class="dropdown-menu" role="menu" aria-labeledby="dropdownMenu1">
+                  <ul class="dropdown-menu col-sm-12" role="menu" aria-labeledby="dropdownMenu1">
               	    <li role="presentation" ng-repeat="item in heading.items">
                       <a role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
               	    </li>    
