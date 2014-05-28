@@ -36,7 +36,10 @@
               {% raw %}
               <ul class="nav navbar-nav col-xs-12">
                 <li class="dropdown" ng-repeat="heading in menus.headings">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{heading.title}}</a>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon {{heading.icon}}"></i>
+                    {{heading.title}}
+                  </a>
                   <ul class="dropdown-menu col-sm-12" role="menu" aria-labeledby="dropdownMenu1">
               	    <li role="presentation" ng-repeat="item in heading.items">
                       <a role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
