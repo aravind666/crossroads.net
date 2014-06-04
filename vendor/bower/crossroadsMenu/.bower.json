@@ -20,14 +20,13 @@
     "angular-mocks": "*",
     "jquery": "*"
   },
-  "homepage": "https://github.com/crdschurch/crdschurch-menu",
-  "_release": "9a5cab0974",
+  "_release": "1a18833888",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9a5cab0974e2340b067a675b1af807eee017cafc"
+    "commit": "1a188338886146345262f48eaf7216794fc43c4e"
   },
-  "_source": "git://github.com/crdschurch/crdschurch-menu.git",
+  "_source": "/Users/Tammy/dev/crdschurch-menu",
   "_target": "*",
-  "_originalSource": "git://github.com/crdschurch/crdschurch-menu.git"
+  "_originalSource": "../crdschurch-menu"
 }

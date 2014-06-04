@@ -14,6 +14,17 @@
   }
 }
 
+.icon--small {
+  @extend .icon;
+  width: 15px;
+  height: 15px;
+}
+
+.icon--right {
+  float: right;
+  margin-right: 20px;
+}
+
 .icon--about:after{
   background-image: url('/img/abouticon.svg');
 }
@@ -24,6 +35,10 @@
 
 .icon--crossroads:after{
   background-image: url('/img/CRIcon.svg');
+}
+
+.icon--dropdown:after{
+  background-image: url('/img/dropdown_arrow.svg');
 }
 
 .icon--engage:after{
@@ -38,10 +53,22 @@
   background-image: url('/img/grow.svg');
 }
 
+.icon--login:after {
+  background-image: url('/img/search.svg');
+}
+
 .icon--media:after{
   background-image: url('/img/media.svg');
 }
 
+.icon--search:after {
+  background-image: url('/img/search.svg');
+}
+
 .icon--user:after {
   background-image: url('/img/user.svg');
+}
+
+.icon--user__white:after {
+  background-image: url('/img/user_white.svg');
 }

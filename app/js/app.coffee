@@ -5,7 +5,10 @@ crossroads.controller "MainCtrl", ($window) ->
   return
 
 $(document).ready ->
-  menu = $('#sp-nav, #sp-page')
+  menu = $('.side-nav__dropdown')
 
-  $('.navbar-toggle').on 'click', ->
+  $('.nav__side--toggle').on 'click', ->
     menu.toggleClass('show')
+
+  $('.side-nav__dropdown--item').on 'click', ->
+    $('this').toggleClass('open')

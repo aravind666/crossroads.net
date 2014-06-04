@@ -81,6 +81,23 @@ footer {
 
 /* Nav Page Push */
 @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+  /*
+  #menu {
+    //position: absolute;
+    //width: 100%;
+    -webkit-transform: translatex(0%);
+    transform: translatex(0%);
+    transition: all 0.3s;
+  }
+
+  #menu.show {
+   -webkit-transform: translatex(101%);
+    transform: translatex(101%);
+    transition: all 0.3s;
+    position: fixed;
+    z-index: 100000000;
+  }
+
   #sp-nav {
     -webkit-transform: translatex(-100%);
     transform: translatex(-100%);
@@ -106,4 +123,105 @@ footer {
     transform: translatex(0%);
     transition: all 0.3s;
   }
+
+
+  #login {
+    left: -470%;
+  }
+
+
+  #menu {
+    //position: absolute;
+    //width: 100%;
+    -webkit-transform: translatex(0%);
+    transform: translatex(0%);
+    transition: all 0.3s;
+  }
+
+  #menu.show {
+   -webkit-transform: translatex(101%);
+    transform: translatex(101%);
+    transition: all 0.3s;
+    position: fixed;
+    z-index: 100000000;
+  }
+
+  #sp-nav {
+    -webkit-transform: translatex(-100%);
+    transform: translatex(-100%);
+    position: absolute;
+    top: 110%;
+    transition: all 0.1s;
+     // left: -260px;
+  }
+
+  #sp-nav.show {
+     // left: -230px;
+    -webkit-transform: translatex(0%);
+    transform: translatex(0%);
+  }
+
+
+  #sp-page {
+    -webkit-transform: translatex(0px);
+    transform: translatex(0px);
+    transition: all 0.3s;
+    padding: 0 20px;
+    position: absolute;
+    //top: 11%;
+    //z-index: 100000000;
+    background-color: white;
+    .overlay {
+        background-color: #555;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 10000000;
+        top: -4%;
+        right: 6%;
+        opacity: 0;
+      }
+  }
+
+  #sp-page.show{
+    -webkit-transform: translatex(267px);
+    transform: translatex(267px);
+    transition: all 0.3s;
+   // top: 11%;
+    position: fixed;
+    .overlay {
+        opacity: 0.75;
+      }
+  }
+
+
+  #search {
+    display: none;
+    margin-left: -104%;
+    position: absolute;
+    margin-top: -3px;
+  }
+
+  #search_input {
+    width: 220px;
+  //  float: left;
+  //  margin-left: -190px;
+  //  left: -150px;
+  //  -webkit-transform: translatex(-150px);
+  //  transform: translatex(-150px);
+  //  transition: all 0.3s;
+    display: none;
+  }
+
+  #search.show {
+    display: block;
+  }
+
+  #search.show #search_input {
+  //  -webkit-transform: translatex(-130px);
+  //  transform: translatex(-130px);
+    display: table;
+  //  transition: all 0.3s;
+
+  }*/
 }
