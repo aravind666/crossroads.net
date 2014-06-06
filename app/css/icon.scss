@@ -22,7 +22,6 @@
 
 .icon--right {
   float: right;
-  margin-right: 20px;
 }
 
 .icon--about:after{
@@ -59,6 +58,10 @@
 
 .icon--media:after{
   background-image: url('/img/media.svg');
+}
+
+.icon--forgot:after {
+  background-image: url('/img/question.svg');
 }
 
 .icon--search:after {

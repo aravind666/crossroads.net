@@ -1,0 +1,69 @@
+<div class="nav" role="navigation">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="side-nav col-xs-11  hidden-lg hidden-xl" ng-class="{show: menuShow}">
+          <div class="side-nav__search input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-addon"><i class="icon--small icon--search"></i></span>
+          </div>
+          <ul class="side-nav__dropdown list-unstyled">
+            <li class="side-nav__dropdown--item" ng-repeat="heading in menus.headings">
+              <a class="heading__title" data-toggle="dropdown" href="#">
+                <i class="icon {{heading.icon}}"></i>
+                {{heading.title}}
+                <i class="icon--small icon--dropdown icon--right"></i>
+              </a>
+              <ul class="side-nav__subnav list-unstyled">
+                <li role="presentation" ng-repeat="item in heading.items">
+                  <a class="heading__item" role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-header">
+          <button type="button" class="nav__side--toggle navbar-left hidden-lg hidden-xl" ng-click="toggleMenu()" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand logo" href="/"><img src="/img/logo.svg" alt="crossroads" /></a>
+          <ul class="navbar--search list-unstyled">
+            <li class="navbar--search__dropdown hidden-xs hidden-sm" data-toggle="dropdown">
+              <button class="btn navbar--signin" ng-click="toggleDesktopLogin()">
+                <i class="icon icon--user"></i>
+                <span>Sign In</span>
+              </button>
+              <ul class="navbar--signin__dropdown col-md-3" role="menu" aria-labelledby="dropdownMenu1" ng-class="{open: loginShow}">
+                <li class="" role="presentation">
+	                 <auth-form></auth-form>
+                </li>
+              </ul>
+            </li>
+            <li class="visible-xs visible-sm">
+              <a class="btn login" href="/login">
+                <i class="icon icon--user"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hidden-xs hidden-sm hidden-md">
+          <ul class="navbar__dropdown list-unstyled">
+            <li class="navbar__dropdown--item" ng-repeat="heading in menus.headings">
+              <a class="navbar--heading__title" data-toggle="dropdown" href="#">
+          		  {{heading.title}}
+          		</a>
+              <ul class="navbar__dropdown--subnav list-unstyled col-sm-12" role="menu" aria-labeledby="dropdownMenu1">
+            	  <li class="navbar__dropdown--subnav--item" role="presentation" ng-repeat="item in heading.items">
+                  <a class="heading__item" role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
+            	  </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
