@@ -1,21 +1,22 @@
 name: New Jekyll site for crossroads.net
+source: app
+destination: generated
 markdown: redcarpet
 highlighter: true
 port: 4002
+keep_files: ["css/*", "js/*"]
 relative_permalinks: false
 exclude: ["vendor", "node_modules", "*.scss", "*.coffee"]
 collections:
   content:
     output: true
-  messages:  
-    output: true  
-  series:  
-    output: true  
-  media:  
-    output: true 
-  music:  
+  messages:
     output: true
-  blog: 
-    output: true 
-
-    
+  series:
+    output: true
+  media:
+    output: true
+  music:
+    output: true
+  blog:
+    output: true
