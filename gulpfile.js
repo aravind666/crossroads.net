@@ -1,3 +1,5 @@
+var devEnv = process.env.NODE_ENV == 'development';
+
 var gulp = require('gulp'),
     exec =  require('gulp-exec'),
     templateCache = require('gulp-angular-templatecache'),
@@ -5,12 +7,16 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     coffee = require('gulp-coffee'),
     sass = require('gulp-sass'),
-    concat = require('gulp-concat-sourcemap'),
+    concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
     clean = require('gulp-clean'),
     streamqueue = require('streamqueue'),
     karma = require('karma').server,
-    _ = require('lodash');
+    _ = require('lodash'),
+    gulpif = require('gulp-if'),
+    ngmin = require('gulp-ngmin'),
+    uglify = require('gulp-uglify'),
+    minifyCSS = require('gulp-minify-css');
 
 var paths = {
     specs: ['spec/js/**/*.coffee'],
@@ -20,7 +26,7 @@ var paths = {
     sass: ['app/css/**/*.scss']
 };
 
-var karmaCommonConf = {
+var karmaConf = {
     preprocessors: {
 	'**/*.coffee': ['coffee'],
 	'app/templates/**/*.html': ['ng-html2js']
@@ -88,6 +94,7 @@ gulp.task('coffee', function() {
 		.pipe(templateCache({standalone: true}))
 	       )
 	.pipe(concat('app.js'))
+	.pipe(gulpif(!devEnv, ngmin()))
 	.pipe(gulp.dest('generated/js'));
 });
 
@@ -95,12 +102,8 @@ gulp.task('sass', function() {
     gulp.src(paths.sass)
 	.pipe(sass({errLogToConsole: true}))
     	.pipe(concat('app.css'))
+	.pipe(gulpif(!devEnv, minifyCSS()))
 	.pipe(gulp.dest('generated/css'));
-});
-
-gulp.task('copy', function() {
-    gulp.src('app/index.html')
-	.pipe(gulp.dest('generated/'));
 });
 
 gulp.task('server', function() {
@@ -112,7 +115,7 @@ gulp.task('server', function() {
 
 
 gulp.task('karma', ['coffee'], function(done) {
-    karma.start(_.assign({}, karmaCommonConf, {singleRun: true}), done);
+    karma.start(_.assign({}, karmaConf, {singleRun: true}), done);
 });
 
 gulp.task('watch', function() {
@@ -129,4 +132,5 @@ gulp.task('spec-watch', function() {
 
 gulp.task('test', ['clean', 'coffee', 'karma', 'spec-watch']);
 gulp.task('dev', ['clean', 'jekyll', 'coffee', 'sass', 'server', 'watch']);
+gulp.task('build', ['clean', 'jekyll', 'coffee', 'sass', 'karma']);
 gulp.task('default', ['dev']);
