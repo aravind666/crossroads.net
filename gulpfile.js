@@ -83,7 +83,7 @@ gulp.task('jekyll', function(){
 	.pipe(exec('bundle exec jekyll build', options));
 });
 
-gulp.task('coffee', function() {
+gulp.task('coffee', ['jekyll'], function() {
     streamqueue({ objectMode: true },
 		gulp.src(vendor),
 		gulp.src(paths.scripts)
@@ -131,7 +131,7 @@ gulp.task('spec-watch', function() {
 });
 
 gulp.task('test', ['clean', 'karma', 'spec-watch']);
-gulp.task('ci', ['clean', 'jekyll', 'karma']);
-gulp.task('dev', ['clean', 'jekyll', 'coffee', 'sass', 'server', 'watch']);
-gulp.task('build', ['clean', 'jekyll', 'coffee', 'sass']);
+gulp.task('ci', ['clean', 'karma']);
+gulp.task('dev', ['clean', 'coffee', 'sass', 'server', 'watch']);
+gulp.task('build', ['clean', 'coffee', 'sass']);
 gulp.task('default', ['dev']);
