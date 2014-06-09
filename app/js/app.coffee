@@ -83,7 +83,7 @@ crossroads.factory "Auth", ($cookieStore, $http, $location, $rootScope) ->
     ).error (data, status) ->
       if status is 0
         console.log "Could not reach API"
-      else console.log "Invalid username & password"  if data.error is "invalid_grant"
+      else console.log "Invalid username & password"
       return
 
     return
