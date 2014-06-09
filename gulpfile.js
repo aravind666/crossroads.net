@@ -130,8 +130,8 @@ gulp.task('spec-watch', function() {
     gulp.watch(paths.scripts, ['clean', 'coffee', 'karma']);
 });
 
-gulp.task('test', ['clean', 'coffee', 'karma', 'spec-watch']);
-gulp.task('ci', ['clean', 'coffee', 'karma']);
+gulp.task('test', ['clean', 'karma', 'spec-watch']);
+gulp.task('ci', ['clean', 'jekyll', 'karma']);
 gulp.task('dev', ['clean', 'jekyll', 'coffee', 'sass', 'server', 'watch']);
 gulp.task('build', ['clean', 'jekyll', 'coffee', 'sass']);
 gulp.task('default', ['dev']);
