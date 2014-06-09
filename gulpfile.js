@@ -8,19 +8,44 @@ var gulp = require('gulp'),
     concat = require('gulp-concat-sourcemap'),
     nodemon = require('gulp-nodemon'),
     clean = require('gulp-clean'),
-    streamqueue = require('streamqueue');
+    streamqueue = require('streamqueue'),
+    karma = require('karma').server,
+    _ = require('lodash');
 
 var paths = {
+    specs: ['spec/js/**/*.coffee'],
     posts: ['app/**/**', '!app/**/.#*.*'],
     templates: ['app/templates/**/*.html'],
     scripts: ['app/js/**/*.coffee'],
     sass: ['app/css/**/*.scss']
 };
 
+var karmaCommonConf = {
+    preprocessors: {
+	'**/*.coffee': ['coffee'],
+	'app/templates/**/*.html': ['ng-html2js']
+
+    },
+    ngHtml2JsPreprocessor: {
+	stripPrefix: 'app/'
+    },
+
+    browsers: ['PhantomJS'],
+    frameworks: ['jasmine'],
+    files: [
+	'spec/helpers/*.js',
+	'generated/js/app.js',
+	'spec/js/**/*.coffee',
+	'app/templates/**/*.html'
+    ]
+};
+
 var vendor = [
+    "vendor/js/jquery.js",
     "vendor/js/underscore.js",
     "vendor/js/mediaelement-and-player.min.js",
     "vendor/bower/angular/angular.js",
+    "vendor/bower/angular-mocks/angular-mocks.js",
     "vendor/bower/angular-strap/dist/angular-strap.js",
     "vendor/bower/angular-strap/dist/angular-strap.tpl.js",
     "vendor/bower/angular-cookies/angular-cookies.js",
@@ -39,26 +64,29 @@ var vendor = [
     "vendor/bower/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"
 ];
 
+gulp.task('clean', function() {
+    gulp.src('generated/js/*.*')
+	.pipe(clean());
+});
+
 gulp.task('jekyll', function(){
     var options = {
 	continueOnError: true
     };
     gulp.src('')
-	.pipe(exec('bundle exec jekyll build', options))
-	.pipe(exec('mkdir -p ./generated/js'))
-	.pipe(exec('mkdir -p ./generated/css'));
+	.pipe(exec('bundle exec jekyll build', options));
 });
 
 gulp.task('coffee', function() {
     streamqueue({ objectMode: true },
-	gulp.src(vendor),
-	gulp.src(paths.scripts)
-            .pipe(coffeelint())
-            .pipe(coffeelint.reporter())
-	    .pipe(coffee().on('error', gutil.log)),
-	gulp.src(paths.templates)
-            .pipe(templateCache({standalone: true}))
-    )
+		gulp.src(vendor),
+		gulp.src(paths.scripts)
+		.pipe(coffeelint())
+		.pipe(coffeelint.reporter())
+		.pipe(coffee().on('error', gutil.log)),
+		gulp.src(paths.templates)
+		.pipe(templateCache({standalone: true}))
+	       )
 	.pipe(concat('app.js'))
 	.pipe(gulp.dest('generated/js'));
 });
@@ -79,19 +107,26 @@ gulp.task('server', function() {
     nodemon({
 	script: './server/server.js',
 	ignore: ['app/','_site/','config/','generated/','spec/','tmp/','vendor/']
-    })
-	.on('restart', function () {
-	    console.log('restarted!');
-	});
+    });
+});
+
+
+gulp.task('karma', ['coffee'], function(done) {
+    karma.start(_.assign({}, karmaCommonConf, {singleRun: true}), done);
 });
 
 gulp.task('watch', function() {
     gulp.watch(paths.posts, ['jekyll']);
-    gulp.watch(paths.scripts, ['coffee']);
+    gulp.watch(paths.scripts, ['clean', 'coffee']);
     gulp.watch(paths.templates, ['ngtemplate']);
     gulp.watch(paths.sass, ['sass']);
 });
 
+gulp.task('spec-watch', function() {
+    gulp.watch(paths.specs, ['clean', 'coffee', 'karma']);
+    gulp.watch(paths.scripts, ['clean', 'coffee', 'karma']);
+});
 
-gulp.task('dev', ['jekyll', 'coffee', 'sass', 'server', 'watch']);
+gulp.task('test', ['clean', 'coffee', 'karma', 'spec-watch']);
+gulp.task('dev', ['clean', 'jekyll', 'coffee', 'sass', 'server', 'watch']);
 gulp.task('default', ['dev']);

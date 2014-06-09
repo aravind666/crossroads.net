@@ -18,7 +18,7 @@ crossroads.run(($rootScope) ->
 
   return
 ).run ($cookieStore, $location, $http, $rootScope, Auth) ->
-  Auth.authenticate()
+  # Auth.authenticate()
   return
 
 crossroads.directive "authForm", ->
