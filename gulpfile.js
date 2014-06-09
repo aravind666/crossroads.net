@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     coffeelint = require('gulp-coffeelint'),
     gutil = require('gulp-util'),
     coffee = require('gulp-coffee'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-ruby-sass'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
     clean = require('gulp-clean'),
@@ -99,8 +99,8 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('sass', function() {
-    gulp.src(paths.sass)
-	.pipe(sass({errLogToConsole: true}))
+    gulp.src('app/css/main.scss')
+	.pipe(sass({sourcemap: false}))
     	.pipe(concat('app.css'))
 	.pipe(gulpif(!devEnv, minifyCSS()))
 	.pipe(gulp.dest('generated/css'));
