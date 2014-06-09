@@ -79,12 +79,18 @@ gulp.task('jekyll', function(){
     var options = {
 	continueOnError: true
     };
-    gulp.src('')
+    return gulp.src('')
 	.pipe(exec('bundle exec jekyll build', options));
 });
 
-gulp.task('coffee', ['jekyll'], function() {
-    streamqueue({ objectMode: true },
+gulp.task('mkdirs', ['jekyll'], function() {
+    return gulp.src('')
+	.pipe(exec('mkdir -p generated/js'))
+	.pipe(exec('mkdir -p generated/css'));
+});
+
+gulp.task('coffee', ['mkdirs'], function() {
+    return streamqueue({ objectMode: true },
 		gulp.src(vendor),
 		gulp.src(paths.scripts)
 		.pipe(coffeelint())
