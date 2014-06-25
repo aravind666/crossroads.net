@@ -9,10 +9,12 @@
 }
 
 #container {
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
   -webkit-transform: translatex(0%);
   transform: translatex(0%);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
 }
 
 header.show .container {
@@ -25,10 +27,12 @@ header.show .container {
 #container.show {
   position: fixed;
   top: 10%;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
   -webkit-transform: translatex(77%);
   transform: translatex(77%);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
 }
 
 .list-unstyled {
@@ -56,8 +60,8 @@ header.show .container {
   padding: 0 13px;
   -webkit-transform: translatex(0%);
   transform: translatex(0%);
-  -webkit-transition: all 0.563s;
-  transition: all 0.563s;
+  -webkit-transition: -webkit-transform 0.563s;
+  transition: transform 0.563s;
   margin-top: 10px;
 }
 
@@ -65,10 +69,12 @@ header.show .container {
   position: fixed;
   z-index: 100000;
   margin-left: 10px;
-  -webkit-transform: translatex(73%);
-  transform: translatex(73%);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: -webkit-transform(73%);
+  transform: transform(73%);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
   margin-top: 10px;
   .navbar-brand.logo {
     width: 80%;
@@ -111,12 +117,21 @@ header.show .container {
   z-index: 100000;
   height: 100%;
   background-color: #f9f9f9;
-  padding-right: 0;
-  padding-top: 10px;
+  padding: 10px 0 0 0;
+  -webkit-box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.175);
+  box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.175);
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  overflow: scroll;
+  right: 17%;
+  width: 75%;
+  text-decoration: none;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
   -webkit-transform: translatex(-125%);
   transform: translatex(-125%);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
   .icon--small {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -125,19 +140,12 @@ header.show .container {
 }
 
 .side-nav.show {
-  overflow: scroll;
-  right: 17%;
-  width: 75%;
-  padding: 10px 0 0 0;
-  -webkit-box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.175);
-  box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.175);
-  text-transform: uppercase;
-  border-bottom: 1px solid #ddd;
-  text-decoration: none;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
   -webkit-transform: translatex(-11%);
   transform: translatex(-11%);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
 }
 
 .side-nav__search {
@@ -259,13 +267,14 @@ header.show .container {
       padding: 0;
       position: absolute;
       z-index: 10000000;
+      transform: translate3d(0,0,0);
+      -webkit-transform: translate3d(0,0,0);
       transition: opacity .2s ease 0.1s, top .2s ease 0.1s;
       .heading__item {
         text-transform: none;
         color: #292929;
         padding: 5px 7px 5px 25px;
         display: block;
-        /*background: url(/img/icon_nav_li.png) no-repeat 14px 8px;*/
         font-size: 12px;
         white-space: normal;
         font-weight: bold;
@@ -365,6 +374,8 @@ header.show .container {
   border: 1px solid #ccc;
   background-color: #fff;
   z-index: -1000000;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
   -webkit-transition: opacity 0.2s, top 0.75s;
   transition: opacity 0.2s, top 0.75s;
 }
@@ -374,6 +385,8 @@ header.show .container {
   top: 80%;
   display: block;
   z-index: 1000000;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
   -webkit-transition: opacity 0.2s, top 0.75s;
   transition: opacity 0.2s, top 0.75s;
 }
