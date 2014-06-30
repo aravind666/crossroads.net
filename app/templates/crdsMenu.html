@@ -56,24 +56,26 @@
         </div>
         <div class="hidden-xs hidden-sm">
           <ul class="navbar__dropdown list-unstyled">
-            <li class="navbar__dropdown--item" ng-repeat="heading in menus.headings">
-              <a class="navbar--heading__title" data-toggle="dropdown" href="#">
+            <li class="navbar__dropdown--item" ng-repeat="heading in menus.headings" ng-mouseover="showMenuHeading(heading)">
+              <a class="navbar--heading__title" data-toggle="dropdown" href="#" ng-click="showMenuHeading(heading)" ng-mouseover="showMenuHeading(heading)">
                 {{heading.title}}
               </a>
-              <ul class="navbar__dropdown--subnav list-unstyled col-sm-12" role="menu" aria-labeledby="dropdownMenu1">
-                <li ng-repeat="headingItem in heading.items" ng-class="headingItem.items && 'navbar__dropdown--subnav--item' || 'navbar__dropdown--subnav__list--item'" role="presentation">
-                  <a ng-class="{heading__item: headingItem.items}"  role="menuitem" tabindex="-1" href="{{headingItem.link}}">{{headingItem.title}}</a>
-                  <ul class="navbar__dropdown--subnav__list list-unstyled col-sm-12" role="menu" aria-labeledby="dropdownMenu1" ng-repeat="item in headingItem.items">
-                    <li class="navbar__dropdown--subnav__list--item" role="presentation">
-                      <a role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
             </li>
           </ul>
         </div>
       </div>
     </div>
+  </div>
+  <div id="menu_content-centered" ng-mouseleave="closeMenuHeading()">
+    <ul class="" role="menu" aria-labeledby="dropdownMenu1">
+      <li ng-repeat="headingItem in menu.heading.items" role="presentation">
+        <a  role="menuitem" tabindex="-1" href="{{headingItem.link}}">{{headingItem.title}}</a>
+        <ul role="menu" aria-labeledby="dropdownMenu1" ng-repeat="item in headingItem.items">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="{{item.link}}">{{item.title}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
