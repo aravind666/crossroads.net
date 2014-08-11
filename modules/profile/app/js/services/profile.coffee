@@ -17,3 +17,6 @@ angular.module("crdsProfile")
     getGenderValues: ->
       $http.get('/api2/GetPageLookupRecords?pageId=311').then (data) ->
         data.data
+
+    getProfileCompletenessPercentage: ->
+      45
