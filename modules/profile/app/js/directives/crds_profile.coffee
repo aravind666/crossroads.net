@@ -16,6 +16,9 @@ angular.module("crdsProfile")
           template = $templateCache.get 'profile/app/templates/profile.html'
           @profileTemplate = $compile template
 
+
+          $scope.percentage = @calculateProfileCompleteness()
+
           # Watch for changes to the current user loggedIn flag
           $scope.$watch "securityContext.loggedIn", (loggedIn) =>
             user = $scope.securityContext.user
@@ -46,9 +49,6 @@ angular.module("crdsProfile")
               @profileElement.remove() if @profileElement
               @addLoading()
 
-
-
-
         registerLogin: (loginCtrl) =>
           console.log "Registered login controller"
           @loginCtrl = loginCtrl
@@ -57,6 +57,8 @@ angular.module("crdsProfile")
           $animate.removeClass $element, $attrs.loadingClass if $attrs.loadingClass
           $element.html ''
 
+        calculateProfileCompleteness: ->
+          45
         addLoading: ->
           $animate.addClass $element, $attrs.loadingClass if $attrs.loadingClass
   }
