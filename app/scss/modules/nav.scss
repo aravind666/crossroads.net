@@ -442,6 +442,7 @@ header.show .container {
   top: -170%;
   border: 1px solid #ccc;
   background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
   z-index: -1000000;
   transition: opacity 0.2s, top 0.75s;
 }
