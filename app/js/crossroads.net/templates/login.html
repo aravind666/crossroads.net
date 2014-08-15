@@ -4,13 +4,13 @@
       <form id="nav_login" role="form" ng-submit="login()">
         <div class="form-group">
           <div class="navbar--login__input" ng-class="{'has-error': loginError}">
-            <input class="form-control" type="text" name="userName" id="username_nav" placeholder="Email" ng-model="user.username" autofocus>
+            <input class="form-control" type="text" name="userName" id="username_nav" placeholder="Email" autocomplete="off" autocapitalize="off" ng-model="user.username" autofocus>
             <a class="icon__container" href="#" tabindex="-1">
               <i class="icon--small icon--forgot"></i>
             </a>
           </div>
           <div class="navbar--login__input" ng-class="{'has-error': loginError}">
-            <input class="form-control" autocomplete="off" type="password" name="password" id="password_nav" placeholder="Password" ng-model="user.password">
+            <input class="form-control" autocomplete="off" type="password" name="password" id="password_nav" placeholder="Password" autocomplete="off" autocapitalize="off" ng-model="user.password">
             <a class="icon__container" href="#" tabindex="-1">
               <i class="icon--small icon--forgot"></i>
             </a>
