@@ -329,9 +329,8 @@ header.show .container {
       .heading__item {
         text-transform: none;
         color: #292929;
-        padding: 5px 7px 5px 25px;
+        padding: 0 5px;
         display: block;
-        /*background: url(/img/icon_nav_li.png) no-repeat 14px 8px;*/
         font-size: 12px;
         white-space: normal;
         font-weight: bold;
@@ -342,7 +341,7 @@ header.show .container {
 
 .navbar__dropdown--subnav--item {
   display: inline-block;
-  padding: 10px 15px 10px 0;
+  padding: 15px;
   vertical-align: top;
   &:first-child {
     background: #eee;
@@ -385,7 +384,7 @@ header.show .container {
 
 .navbar__dropdown--subnav__list--item {
   margin: 0;
-  padding: 5px 7px 5px 25px;
+  padding: 5px 10px;
   border: none;
   background: none;
   display: block;
@@ -456,7 +455,7 @@ header.show .container {
 }
 
 .navbar--login__input {
-  margin: 10px 0;
+  margin-bottom: 12px;
   width: 100%;
 }
 
@@ -484,4 +483,8 @@ header.show .container {
       margin-top: 0px;
     }
   }
+  .side-nav__subnav__item-container, .navbar--login__container {
+    margin-top: 15px;
+  }
+
 }
