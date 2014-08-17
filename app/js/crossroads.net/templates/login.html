@@ -5,14 +5,13 @@
         <div class="form-group">
           <div class="navbar--login__input" ng-class="{'has-error': loginError}">
             <input class="form-control" type="text" name="userName" id="username_nav" placeholder="Email" autocomplete="off" autocapitalize="off" ng-model="user.username" autofocus>
-            <a class="icon__container" href="#" tabindex="-1">
-              <i class="icon--small icon--forgot"></i>
-            </a>
           </div>
           <div class="navbar--login__input" ng-class="{'has-error': loginError}">
             <input class="form-control" autocomplete="off" type="password" name="password" id="password_nav" placeholder="Password" autocomplete="off" autocapitalize="off" ng-model="user.password">
-            <a class="icon__container" href="#" tabindex="-1">
-              <i class="icon--small icon--forgot"></i>
+            <a class="nav-icon__container" href="/forgotpassword" tabindex="-1">
+              <svg viewBox="0 0 32 32" class="icon icon-question-circle icon-subtle">
+                <use xlink:href="/icons/cr.svg#question-circle"></use>
+              </svg>
             </a>
           </div>
           <div>

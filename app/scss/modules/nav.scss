@@ -457,6 +457,7 @@ header.show .container {
 .navbar--login__input {
   margin-bottom: 12px;
   width: 100%;
+  position: relative;
 }
 
 .btn.navbar--login__submit {
@@ -464,10 +465,11 @@ header.show .container {
   @include gradient(#7AA8C2, #4A81A0);
 }
 
-.icon__container {
+
+.nav-icon__container {
   position: absolute;
-  margin-top: -32px;
-  right: 18px;
+  right: 5px;
+  top: 10px;
 }
 
 /***** Mobile Nav *****/

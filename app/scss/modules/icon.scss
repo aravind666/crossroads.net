@@ -45,6 +45,13 @@
   fill: $brand-danger;
 }
 
+.icon-subtle {
+  fill: $gray-light;
+  &:hover {
+    fill: $brand-secondary;
+  }
+}
+
 
 /***************************************************************************************
 * Loading Icons
