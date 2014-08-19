@@ -119,7 +119,7 @@ module.exports = function(app) {
         request
           .get(contactUrl)
           .query({ pageId: contactPageId, recordId: recordId })
-          .set('Authorization', 'Bearer ' + token.access_token)
+          .set('Authorization', 'Bearer ' + token.token.access_token)
           .end(function(err, res) {
             var error = err || res.error,
                 email;
