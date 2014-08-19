@@ -27,7 +27,7 @@ For more information about Gulp visit: http://gulpjs.com
 
 ### Daily Routine
 * ```git pull```
-* ```npm update```
+* ```npm install```
 * ```bower install```
 
 ### Running the project
