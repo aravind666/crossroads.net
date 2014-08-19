@@ -27,7 +27,7 @@ module.exports = function(app) {
       // do not send an email but reply as usual
       var honeypot = req.param('crds-form-authorization-signature');
       if (!honeypot) {
-        var replyNameField = req.param('crds-form-reply-name') || 'replayName';
+        var replyNameField = req.param('crds-form-reply-name') || 'replyName';
         var replyEmailField = req.param('crds-form-reply-email') || 'replyEmail';
 
         // Validate the form inputs
