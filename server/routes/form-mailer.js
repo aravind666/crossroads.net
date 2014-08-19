@@ -4,7 +4,7 @@ var util = require('util');
 var q = require('q');
 var request = require('superagent');
 var auth = require('../auth');
-logger = require('../logger');
+var logger = require('../logger');
 
 module.exports = function(app) {
   //
