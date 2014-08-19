@@ -4,12 +4,15 @@ angular.module("crdsProfile").directive("crdsProfile", function($timeout, $anima
   return {
     restrict: 'EA',
     scope: true,
-    controller: function($scope, $element, $attrs, Profile) {
+    controller: function($scope, $element, $attrs, Profile, Constants) {
       return new ((function() {
         function _Class() {
+
+
           this.registerLogin = __bind(this.registerLogin, this);
           var template;
           this.addLoading();
+          $scope.percentage = this.calculateProfileCompleteness();
           template = $templateCache.get('profile/templates/profile.html');
           this.profileTemplate = $compile(template);
           $scope.$watch("securityContext.loggedIn", (function(_this) {
@@ -63,6 +66,18 @@ angular.module("crdsProfile").directive("crdsProfile", function($timeout, $anima
           if ($attrs.loadingClass) {
             return $animate.addClass($element, $attrs.loadingClass);
           }
+        };
+
+        _Class.prototype.calculateProfileCompleteness = function() {
+
+           // Logic Description
+           // Make constant names to match with the ministry platform keys for profile values
+           // Access Constrant.weightages values using ministry platform keys
+           // Add them
+           var weightage = 0;
+           // Sample Add logic and sample constant access to use
+           weightage = Constants.weightages.crossroadsLocation + Constants.weightages.streetAddress
+           return weightage
         };
 
         return _Class;
