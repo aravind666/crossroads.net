@@ -1,6 +1,5 @@
 require('../../test/helper.js');
 var request = require('supertest');
-replay.mode = 'record';
 
 describe('form-mailer', function() {
   it('should be successful', function(done) {

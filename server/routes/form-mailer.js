@@ -4,7 +4,7 @@ var util = require('util');
 var q = require('q');
 var request = require('superagent');
 var auth = require('../auth');
-logger = require('../logger');
+var logger = require('../logger');
 
 module.exports = function(app) {
   //
@@ -27,7 +27,7 @@ module.exports = function(app) {
       // do not send an email but reply as usual
       var honeypot = req.param('crds-form-authorization-signature');
       if (!honeypot) {
-        var replyNameField = req.param('crds-form-reply-name') || 'replayName';
+        var replyNameField = req.param('crds-form-reply-name') || 'replyName';
         var replyEmailField = req.param('crds-form-reply-email') || 'replyEmail';
 
         // Validate the form inputs
@@ -79,27 +79,23 @@ module.exports = function(app) {
         }
 
         // Lookup the TO Contact(s) in Ministry Platform
-        var promise = lookupContacts(toList);
-        promise
-          .then(function(emails) {
-            logger.debug('Retrieved email addresses: ' + emails);
+        lookupContacts(toList).then(function(emails) {
+          logger.debug('Retrieved email addresses: ' + emails);
+          send(emails, replyEmail, replyName, subject, content);
 
-            // Send the email using Mandrill
-            send(emails, replyEmail, replyName, subject, content);
-          }, function(err) {
-            logger.error('Error looking up email addresses for contact ids: ' + toList);
-          })
-          .done();
+          if (redirect) {
+            res.redirect(redirect);
+          } else {
+            res.status(200).end();
+          }
+        }, function(err) {
+          logger.error('Error looking up email addresses for contact ids: ' + toList);
+          next(err);
+        }).done();
       } else {
         logger.warn('BOT submitted request');
       }
 
-      // Redirect to a success page
-      if (redirect) {
-        res.redirect(redirect);
-      } else {
-        res.status(200).end();
-      }
     });
 
   //
@@ -123,15 +119,18 @@ module.exports = function(app) {
         request
           .get(contactUrl)
           .query({ pageId: contactPageId, recordId: recordId })
-          .set('Authorization', 'Bearer ' + token.access_token)
+          .set('Authorization', 'Bearer ' + token.token.access_token)
           .end(function(err, res) {
-            if (err || res.error) {
-              logger.error('Contact Lookup Error: ' + util.inspect(err || res.error));
-              return;
-            }
+            var error = err || res.error,
+                email;
 
-            var email = extractFieldValue(res.body, 'Email_Address');
-            deferred.resolve(email);
+            if (error) {
+              logger.error('Contact Lookup Error: ' + util.inspect(error));
+              deferred.reject(error)
+            } else {
+              email = extractFieldValue(res.body, 'Email_Address');
+              deferred.resolve(email);
+            }
           });
       }, function(error) {
         deferred.reject(error);
