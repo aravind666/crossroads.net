@@ -4,10 +4,10 @@ layout: full_width
 
 <tabset class="message-media">
     <tab heading="Video">
-        {% if page.yt-embed-url %}
+        {% if page.yt-video-id %}
         <div class="container">
             <div class="col-lg-10 col-lg-offset-1 row" fit-vids>
-                <iframe id="ytplayer" type="text/html" width="854" height="480.375" src="{{ page.yt-embed-url }}?controls=2&showinfo=0&color=white&hd=1" frameborder="0" allowfullscreen></iframe>
+                <iframe id="ytplayer" type="text/html" width="854" height="480.375" src="//www.youtube.com/embed/{{ page.yt-video-id }}?controls=2&showinfo=0&color=white&hd=1" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         {% else %}
@@ -24,7 +24,7 @@ layout: full_width
         <div class="container audio-container">
             <div class="col-lg-10 col-lg-offset-1 row" ng-app="plangular">
             <img src="http://img.youtube.com/vi/jNRGDzZKDUs/maxresdefault.jpg" class="img-responsive" />
-            
+
                 <div plangular data-src="{{ page.sc-permalink-url }}" class="media col-xs-12 row">
                 {% raw %}
                     <div class="controls col-xs-2 col-sm-1">
@@ -64,11 +64,11 @@ layout: full_width
     <header class="message-header col-lg-10 col-lg-offset-1">
         <h1>{{ page.title }}</h1>
         <h2 class="subheading">Series: {{ page.series }}</h2>
-        <p><span class="message-date text-muted">{{ page.date | date: "%A, %B %-d, %Y" }}</span></p> 
+        <p><span class="message-date text-muted">{{ page.date | date: "%A, %B %-d, %Y" }}</span></p>
     </header>
     <div class="message-body col-lg-10 col-lg-offset-1">
         <p>{{ page.description }}</p>
-        
+
         {% include addthis.html %}
         {% if page.program contains 'pdf' %}
         <a href="{{ page.program }}" class="btn btn-primary">View Program  <span class="badge filetype-badge">PDF</span></a>
@@ -79,6 +79,6 @@ layout: full_width
         {% if page.audio contains 'mp3' %}
         <a href="{{ page.audio }}" class="btn btn-primary">Download Audio  <span class="badge filetype-badge">MP3</span></a>
         {% endif %}
-        
+
     </div><!--/message-body-->
 </div>
