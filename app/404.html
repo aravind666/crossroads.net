@@ -1,13 +1,30 @@
 ---
-layout: base
+layout: base_no_js
 title: Dagnabbit
 published: true
 ---
 
 <div class="dagnabbit" id="dagnabbit">
-    <div class="col-sm-12">
-        <div class="col-sm-8">
-            <a href="/"><img src="//crossroads-media.s3.amazonaws.com/images/error.gif" alt="Page not found!"></a>
-        </div>
-    </div>
+	{% include brandbar.html %}
+	<div class="container">
+		<div class="row error-content">
+			<div class="col-sm-5">
+		  	<h1 class="brand-font type-color push--bottom">Oops.</h1>
+		  	<h2 class="subheading push--bottom">File not found.<br>
+		  	<a class="link--orange" href="#">Click here </a>to return to the home page.</h2>
+				<div class="row">
+			    <div class="col-sm-9">
+			      <input type="text" class="form-control">
+			    </div>
+					<div class="col-sm-3">
+		        <button type="submit" class="btn btn-primary full-width">Search</button>
+		      </div>
+		    </div>
+			 </div>
+		  <div class="col-sm-7">
+		     <a href="/"><img class="full-width center" src="//crossroads-media.s3.amazonaws.com/images/404crushedcoffee.png" alt="Page not found!"></a>
+		  </div>
+		 <div class="row">
+		</div>
+	</div>
 </div>
