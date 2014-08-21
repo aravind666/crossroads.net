@@ -8,9 +8,9 @@ message_id: 876
 description: ""
 video: "http://s3.amazonaws.com/crossroads-media/messages/video/071914_Oakley.mp4"
 video-duration: ":"
-yt-embed-url: ""
+yt-video-id: "2AO3vPWODEM"
 video-image: "http://s3.amazonaws.com/crossroads-media/images/071914-Oakley.jpg"
-sc-permalink-url: ""
+sc-permalink-url: "http://soundcloud.com/crdschurch/wonders-oakley"
 audio: "http://s3.amazonaws.com/crossroads-media/messages/audio/071914%20Oakley.mp3"
 audio-duration: ":"
 tag: 

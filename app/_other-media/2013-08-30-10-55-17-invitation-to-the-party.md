@@ -9,7 +9,7 @@ tag:
  - florence
  - crossroads-church
  - last-wednesday
-yt-embed-url: ""
+yt-video-id: ""
 video: "http://s3.amazonaws.com/crossroads-media/other-media/video/rsvp03.mp4"
 video-poster: "http://s3.amazonaws.com/crossroads-media/images/082813_LW_Florence_Still.jpg"
 ---

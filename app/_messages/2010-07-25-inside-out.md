@@ -12,7 +12,7 @@ program: "http://s3.amazonaws.com/crossroads-media/documents/07_24-25_10Program.
 description: "Chuck Mingo talks about hope and the Kingdom of God."
 video: "http://s3.amazonaws.com/crossroads-media/messages/video/KingdomCome03.mp4"
 video-duration: "36:00"
-yt-embed-url: ""
+yt-video-id: ""
 video-image: "http://s3.amazonaws.com/crossroads-media/images/KingdomCome03_still.jpg"
 tag: 
  - mingo
