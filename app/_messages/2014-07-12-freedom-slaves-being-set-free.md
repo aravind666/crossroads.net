@@ -5,14 +5,14 @@ series: "Wonders"
 title: "Freedom: Slaves being set free"
 date: 2014-07-12-00-00
 message_id: 875
-sc-permalink-url: ""
+sc-permalink-url: "http://soundcloud.com/crdschurch/freedom-slaves-being-set-free"
 audio: "http://s3.amazonaws.com/crossroads-media/messages/audio/wonders_02.mp3"
 audio-duration: ":"
 program: "http://s3.amazonaws.com/crossroads-media/documents/07_12-13_14Program.pdf"
 description: "The wonder of freedom"
 video: "http://s3.amazonaws.com/crossroads-media/messages/video/wonders_02.mp4"
 video-duration: ":"
-yt-embed-url: ""
+yt-video-id: "vxwOrZjxNHQ"
 video-image: "http://s3.amazonaws.com/crossroads-media/images/wonders_02_still.jpg"
 tag: 
  - chuck-mingo

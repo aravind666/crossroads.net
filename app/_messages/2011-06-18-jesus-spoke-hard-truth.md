@@ -12,7 +12,7 @@ program: "http://s3.amazonaws.com/crossroads-media/documents/06_18_19_11Program.
 description: "Steven Manuel talks about how Jesus didn't play to the crowds."
 video: "http://s3.amazonaws.com/crossroads-media/messages/video/greatestshow01.mp4"
 video-duration: "47:08"
-yt-embed-url: "//www.youtube.com/embed/crBzF5KtUAI"
+yt-video-id: "crBzF5KtUAI"
 video-image: "http://s3.amazonaws.com/crossroads-media/images/greatestshow01_still.jpg"
 tag: 
  - truth

@@ -12,7 +12,7 @@ program: "http://s3.amazonaws.com/crossroads-media/documents/01_25-26_14Program_
 description: "Karl Martin talks about how change becomes permanent."
 video: "http://s3.amazonaws.com/crossroads-media/messages/video/powertochange_04.mp4"
 video-duration: "35:07"
-yt-embed-url: ""
+yt-video-id: ""
 video-image: "http://s3.amazonaws.com/crossroads-media/images/powertochange_04_still.jpg"
 tag: 
  - crossroads-church
