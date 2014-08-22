@@ -10,5 +10,8 @@ exports.config = {
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000
+  },
+  onPrepare: function() {
+    require('../spec/integration/helper');
   }
 };
