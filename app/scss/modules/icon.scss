@@ -1,18 +1,27 @@
-.icon {
-  display: inline;
+%icon {
   display: inline-block;
+}
+
+.icon {
+  @extend %icon;
   width: 15px;
   height: 15px;
 }
 
+.icon-medium {
+  @extend %icon;
+  width: 20px;
+  height: 20px;
+}
+
 .icon-large {
-  @extend .icon;
+  @extend %icon;
   width: 24px;
   height: 24px;
 }
 
 .icon-xlarge {
-  @extend .icon;
+  @extend %icon;
   width: 32px;
   height: 32px;
 }
@@ -50,6 +59,25 @@
   &:hover {
     fill: $brand-secondary;
   }
+}
+
+.icon-social-media {
+  fill: $gray-light;
+}
+
+.icon-facebook:hover {
+  fill: #3B5998;
+}
+
+.icon-twitter {
+  margin-right: 5px; //Need some help with understanding how the icons work to remove //
+  &:hover {
+    fill: #55ACEE;
+  }
+}
+
+.icon-mail5:hover {
+  fill: $brand-secondary;
 }
 
 
