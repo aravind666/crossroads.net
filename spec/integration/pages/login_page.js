@@ -12,6 +12,13 @@ var LoginPage = (function() {
     browser.get('/');
   };
 
+  LoginPage.prototype.login = function(username, password) {
+    this.showForm();
+    this.fillEmail(username);
+    this.fillPassword(password);
+    this.submitForm();
+  };
+
   LoginPage.prototype.showForm = function() {
     this.formButton.click();
     browser.isElementPresent(this.loginForm);
@@ -21,11 +28,11 @@ var LoginPage = (function() {
     this.emailField.sendKeys(email);
   };
 
-  LoginPage.prototype.fillPassword = function() {
-    this.passwordField.sendKeys("password");
+  LoginPage.prototype.fillPassword = function(password) {
+    this.passwordField.sendKeys(password);
   };
 
-  LoginPage.prototype.login = function() {
+  LoginPage.prototype.submitForm = function() {
     this.loginButton.click();
   };
 
