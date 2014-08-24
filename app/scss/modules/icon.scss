@@ -69,11 +69,8 @@
   fill: #3B5998;
 }
 
-.icon-twitter {
-  margin-right: 5px; //Need some help with understanding how the icons work to remove //
-  &:hover {
-    fill: #55ACEE;
-  }
+.icon-twitter:hover {
+  fill: #55ACEE;
 }
 
 .icon-mail5:hover {
