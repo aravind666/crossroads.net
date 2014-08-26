@@ -1,6 +1,5 @@
-crossroads.net
+crossroads.net   [ ![Codeship Status for crdschurch/crossroads.net](https://codeship.io/projects/6ddb6560-ba06-0131-b9cf-423fef3689ea/status?branch=master)](https://codeship.io/projects/20882)
 ==============
-
 Code base for Milacron.
 Please feel free to contribute by forking and doing a pull request.
 
