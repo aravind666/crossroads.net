@@ -26,4 +26,27 @@
   @media (min-width: $screen-sm-min) {
     float: right;
   }
+
+  .panel,
+  h4,
+  h3,
+  pre {
+    margin-top: $line-height-computed;
+  }
+
+  .media-heading,
+  .list-group-item-heading {
+    margin-top: 0px;
+  }
+}
+
+.nav-stacked {
+  > li {
+    > ul {
+      > li.active {
+        list-style-type: disc;
+        color: $brand-primary;
+      }
+    }
+  }
 }
