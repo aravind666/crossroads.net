@@ -27,11 +27,10 @@
         {% endif %}
       </div>
       <div class="soft--top">
-        <a href="{{ post.url }}#disqus_thread">0 Comments</a> <svg viewBox="0 0 32 32" class="icon icon-bubble"><use xlink:href="#bubble"></use></svg>
+        <a href="{{ post.url }}#disqus_thread" class="post-comments">0 Comments</a>
         <add-this addthis:title="{{ post.title }}" addthis:url="{{ site.baseurl }}{{ post.url }}"></add-this>
     </div>
     </li>
   {% endunless %}
   {% endfor %}
 </ul>
-

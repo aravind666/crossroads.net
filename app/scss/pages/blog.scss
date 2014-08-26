@@ -22,7 +22,7 @@ h2 a{
   color: $gray-darker;
 }
 
-h2 a:hover{ 
+h2 a:hover{
   color: $gray;
 }
 
@@ -62,10 +62,20 @@ h2 a:hover{
 .author_link{
   color: $cr-blue;
 }
+
+.post-comments{
+  padding-right: 10px;
+  border-right: 1px solid $gray-light;
+}
+
 .social_media_buttons{
   display: inline-block;
-  float: right;
-  padding-top: 10px;
+  padding: 0 5px;
+  margin: 0 auto;
+  vertical-align: middle;
+  svg {
+    margin-right: 5px;
+  }
 }
 
 .blog_headline {
@@ -93,4 +103,10 @@ h2 a:hover{
 .right_column_header {
   color: $cr-blue;
   font-size: 18px;
+}
+
+@media (max-width: 992px) {
+  .social_media_buttons svg {
+      margin-right: 20px;
+    }
 }
