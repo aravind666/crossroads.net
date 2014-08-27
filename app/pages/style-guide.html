@@ -12,7 +12,10 @@ categories:
       <li du-scrollspy="getting-started" offset="30"><a href="#getting-started" du-smooth-scroll>Getting Started</a></li>
       <li du-scrollspy="coding-style" offset="30"><a href="#coding-style" du-smooth-scroll>Coding Style</a></li>
       <li du-scrollspy="file-structure" offset="30"><a href="#file-structure" du-smooth-scroll>File Structure</a></li>
-      <li du-scrollspy="naming-conventions" offset="30"><a href="#naming-conventions" du-smooth-scroll>Class Naming Conventions</a>
+      <li du-scrollspy="naming-conventions" offset="30"><a href="#naming-conventions" du-smooth-scroll>Class Naming Conventions</a></li>
+      <li du-scrollspy="specificity" offset="30"><a href="#specificity" du-smooth-scroll>Specificity</a></li>
+      <li du-scrollspy="prefixes" offset="30"><a href="#prefixes" du-smooth-scroll>Prefixes</a></li>
+      <li du-scrollspy="icons" offset="30"><a href="#icons" du-smooth-scroll>Icons</a>
       <li du-scrollspy="the-kitchen-sink" offset="30"><a href="#the-kitchen-sink" du-smooth-scroll>The Kitchen Sink</a>
         <ul>
           <li du-scrollspy="headings" offset="30"><a href="#headings" du-smooth-scroll>Headings</a></li>
@@ -31,9 +34,10 @@ categories:
           <li du-scrollspy="progress" offset="30"><a href="#progress" du-smooth-scroll>Progress Bars</a></li>
           <li du-scrollspy="media-objects" offset="30"><a href="#media-objects" du-smooth-scroll>Media Object</a></li>
           <li du-scrollspy="list-groups" offset="30"><a href="#list-groups" du-smooth-scroll>List Groups</a></li>
+          <li du-scrollspy="panels" offset="30"><a href="#panels" du-smooth-scroll>Panels</a></li>
+          <li du-scrollspy="wells" offset="30"><a href="#wells" du-smooth-scroll>Wells</a></li>
         </ul>
       </li>
-      <li du-scrollspy="icons" offset="30"><a href="#icons" du-smooth-scroll>Icons</a>
     </ul>
   </div><!--/col-sm-3-->
 
@@ -179,8 +183,59 @@ categories:
 
     <div id="naming-conventions">
       <h3>Class Naming Conventions</h3>
-      <p>To be determined</p>
+      <ul>
+
+        <li>Use (single) dashes in class names.</li>
+        <li>Keep things as short as possible without adding confusion.</li>
+        <li>For State rules, use <code>is-</code> as in <code>is-hidden</code> or <code>is-collapsed</code>.</li>
+        <li>To extend a module, use subclasses. With sub-classing the module, both the base module and the sub-module class names get applied to the HTML element. (eg. <code>.pod</code>, <code>.pod-constrained</code>, <code>.pod-callout</code>)</li>
+      </ul>
     </div> <!--/naming-conventions-->
+
+    <hr />
+
+    <div id="specificity">
+      <h3>Specificity (classes vs. ids)</h3>
+
+      <p>Elements that occur exactly once inside a page can use IDs, otherwise, use classes. When in doubt, use a class name.</p>
+      <ul>
+      <li><strong>Good</strong> candidates for ids: header, footer, modal popups.</li>
+      <li><strong>Bad</strong> candidates for ids: navigation, item listings, item view pages (ex: issue view).</li>
+      </ul>
+      <h4>CSS Specificity guidelines</h4>
+      <ul class="task-list">
+        <li>If you must use an id selector (<code>#selector</code>) make sure that you have no more than <em>one</em> in your rule declaration. A rule like <code>#header .search #quicksearch { ... }</code> is considered harmful.</li>
+        <li>When modifying an existing element for a specific use, try to use specific class names. Instead of <code>.listings-layout.bigger</code> use rules like <code>.listings-layout.listings-bigger</code>. Think about <code>ack/grep</code>ing your code in the future.</li>
+        <li>The class names <code>disabled</code>, <code>mousedown</code>, <code>danger</code>, <code>hover</code>, <code>selected</code>, and <code>active</code> should <em>always</em> be namespaced by a class (<code>button.selected</code> is a good example).</li>
+      </ul>
+    </div><!--/specificity-->
+
+    <hr />
+
+    <div id="prefixes">
+      <h3>Prefixes</h3>
+      <p>We use <a href="https://github.com/ai/autoprefixer">Autoprefixer</a> to parse CSS and add vendor prefixes to CSS rules using values from <a href="http://caniuse.com/">Can I Use</a>. For that reason, you do not need to include any vendor prefixes in your SCSS.</p>
+    </div> <!--/prefixes-->
+
+    <hr />
+
+    <div id="icons">
+      <h3>Icons</h3>
+      <p>We use inline SVGs with the <code>&#60;use&#62;</code> element for icons. For more information as to why, read <a href="http://css-tricks.com/svg-sprites-use-better-icon-fonts/">here</a>.
+      <ul>
+      <li>Icons that are already being used in the system are all listed on the <a href="/icons/preview-svg.html">Icon Preview Page</a>.</li>
+      <li>To use one of these icons, just click the "Show Snippet" button and copy the code.</li>
+      <li>We also have a library of approved icons that you can add to the project as well. To see these, view our <a href="http://crdschurch.github.io/icon-library/">Approved Icon Library</a>.</li>
+      <li>To add any of these icons to the project:
+      <ol>
+      <li>Clone the 'icon-library' repo. </li>
+      <li>Find the icon you would like to use in the project. Make sure to double check that we haven't already included it.</li>
+      <li>Copy the SVG file for the icon you want to use  from the icon-library directory in to the "/app/icons/" directory in the crossroads.net repo.</li>
+      <li>Run 'gulp' on the crossroads.net project. Your icon will now be included in the project. </li>
+      </ol>
+      </li>
+      </ul>
+    </div> <!--/icons-->
 
     <hr />
 
@@ -820,15 +875,91 @@ categories:
         </div>
       </div><!--/list-groups-->
 
+      <div class="panel panel-default" id="panels">
+        <div class="panel-heading">Panels
+        </div>
+        <div class="panel-body">
+          <div class="col-lg-4">
+            <div class="panel panel-primary" id="panels">
+              <div class="panel-heading">This is a header
+              </div>
+              <div class="panel-body">This is a panel</div>
+              <div class="panel-footer">This is a footer
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-success">
+              <div class="panel-heading">This is a header
+              </div>
+              <div class="panel-body">This is a panel</div>
+              <div class="panel-footer">This is a footer
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-danger">
+              <div class="panel-heading">This is a header
+              </div>
+              <div class="panel-body">This is a panel</div>
+              <div class="panel-footer">This is a footer
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading">This is a header
+              </div>
+              <div class="panel-body">This is a panel</div>
+              <div class="panel-footer">This is a footer
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">This is a header
+              </div>
+              <div class="panel-body">This is a panel</div>
+              <div class="panel-footer">This is a footer
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">This is a header
+              </div>
+              <div class="panel-body">This is a list group panel</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">First Item</li>
+                <li class="list-group-item">Second Item</li>
+                <li class="list-group-item">Third Item</li>
+              </ul>
+              <div class="panel-footer">This is a footer
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--/panels-->
+
+      <div class="panel panel-default" id="wells">
+        <div class="panel-heading">Wells
+        </div>
+        <div class="panel-body">
+          <div class="well">
+            Look, I'm in a well!
+          </div>
+          <div class="well well-lg">
+            Look, I'm in a large well!
+          </div>
+          <div class="well well-sm">
+            Look, I'm in a small well!
+          </div>
+        </div>
+      </div><!--/wells-->
 
     </div> <!--/the-kitchen-sink-->
     
     <hr />
-    
-    <div id="icons">
-      <h3>Icons</h3>
-      <p>Coming</p>
-    </div> <!--/icons-->
 
   </div> <!--/col-sm-9 styleguide-content-->
 </div> <!--/container-->
