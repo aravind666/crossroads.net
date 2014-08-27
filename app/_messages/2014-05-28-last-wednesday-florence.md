@@ -11,7 +11,7 @@ audio-duration: ":"
 description: "Last Wednesday - Florence"
 video: "http://s3.amazonaws.com/crossroads-media/messages/video/052814-lw-Florence.mp4"
 video-duration: ":"
-yt-embed-url: "//www.youtube.com/embed/Clxnj7VEIGE"
+yt-video-id: "Clxnj7VEIGE"
 video-image: "http://s3.amazonaws.com/crossroads-media/images/last-wednesday.jpg"
 tag: 
  - crossroads

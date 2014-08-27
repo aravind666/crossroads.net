@@ -10,7 +10,7 @@ tag:
  - grace
  - pleasure
  - lavish
-yt-embed-url: "//www.youtube.com/embed/_KyypmRqLJ0"
+yt-video-id: "_KyypmRqLJ0"
 video: "http://s3.amazonaws.com/crossroads-media/other-media/video/BT%20Motorcycle.mp4"
 video-poster: "http://s3.amazonaws.com/crossroads-media/images/BT_Motorcycle_Still.jpg"
 ---
