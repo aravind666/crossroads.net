@@ -10,6 +10,7 @@
 /app/css/sprites.scss
 /app/icons/generated/
 /app/icons/preview-svg.html
+/app/icons/cr.svg
 /config/_config.local.yml
 /generated/
 /node_modules/*
